@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
         Vector2 movement = new Vector2(moveSpeed, 0f);
 
         //myRigidbody.MovePosition(myRigidbody.position + movement * Time.deltaTime);
-        myRigidbody.velocity = new Vector2(moveSpeed, myRigidbody.velocity.y);
+        myRigidbody.linearVelocity = new Vector2(moveSpeed, myRigidbody.linearVelocity.y);
 
     }
     void FlipEnemyFacing()

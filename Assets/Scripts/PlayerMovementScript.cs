@@ -106,11 +106,11 @@ public class PlayerMovementScript : MonoBehaviour
 
     void FlipSprite()
     {
-        bool playerHasHorizotalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizotalSpeed = Mathf.Abs(myRigidbody.linearVelocity.x) > Mathf.Epsilon;
 
         if (playerHasHorizotalSpeed)
         {
-            transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
+            transform.localScale = new Vector2(Mathf.Sign(myRigidbody.linearVelocity.x), 1f);
         }
     }
 
