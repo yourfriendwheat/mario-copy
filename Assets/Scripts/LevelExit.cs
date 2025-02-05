@@ -17,15 +17,24 @@ public class LevelExit : MonoBehaviour
 
     IEnumerator LoadNextLevel()
     {
+        Debug.Log("LoadNextLevel started.");
+        
         yield return new WaitForSecondsRealtime(levelLoadDelay);
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
 
-        if(nextSceneIndex ==SceneManager.sceneCountInBuildSettings)
+      
+        Object.FindFirstObjectByType<Persist>()?.ResetScenePersist();
+
+        
+        try
         {
-            nextSceneIndex = 0;
+            Debug.Log("Attempting to load scene at index: " + nextSceneIndex);
+            SceneManager.LoadScene(nextSceneIndex);
         }
-        FindObjectOfType<Persist>().ResetScenePersist();
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        catch (System.Exception e)
+        {
+            Debug.LogError("Failed to load scene: " + e.Message);
+        }
     }
 }

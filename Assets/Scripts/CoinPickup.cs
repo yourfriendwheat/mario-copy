@@ -6,18 +6,41 @@ public class CoinPickup : MonoBehaviour
 {
 
     [SerializeField] AudioClip coinPickupSFX;
-    [SerializeField] int pointsForCoinPickup = 100;
 
     bool wasCollected = false;
     
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player" && !wasCollected)
+        // Only process if the player collides and the coin hasn't been collected yet
+        if (other.CompareTag("Player") && !wasCollected)
         {
-            wasCollected = true;
-            FindObjectOfType<GameSession>().AddToScore(pointsForCoinPickup);
-            AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
-            Destroy(gameObject);
+            wasCollected = true;  // Mark the coin as collected
+            Debug.Log("Coin was collected: " + wasCollected); // Confirm this is true when the player collides
+
+            // Add score
+            var gameSession = Object.FindFirstObjectByType<GameSession>();
+            if (gameSession != null)
+            {
+                AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
+            }
+            else
+            {
+                Debug.LogError("GameSession object not found!");
+            }
+
+            
+            Debug.Log("Destroying coin...");
+  
+            GameObject.Find("GameManager").GetComponent<GameManager>().EarnScore(100);
+            Destroy(gameObject);  // Destroy the coin once collected
+
         }
     }
-}
+    
+
+} 
+
+
+    
+

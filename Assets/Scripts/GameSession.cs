@@ -39,10 +39,13 @@ public class GameSession : MonoBehaviour
     {
         if(playerLives > 1)
         {
+            
             TakeLife();
         }
         else
         {
+            playerLives = playerLives - 1;
+            livesText.text = playerLives.ToString();
             ResetGameSession();
         }
     }
@@ -64,7 +67,7 @@ public class GameSession : MonoBehaviour
 
     void ResetGameSession()
     {
-        FindObjectOfType<Persist>().ResetScenePersist();
+        //FindObjectOfType<Persist>().ResetPersist();
         SceneManager.LoadScene(0);
         Destroy(gameObject);
     }
