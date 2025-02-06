@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 637227aa064418d4386c232f14810876
+guid: 650482c60a1d5ab4e85489f9b33b52c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9088646550938243524
-    second: IMG_1750_0
+      213: -7527712895022924606
+    second: ice level_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_1750_0
+      name: ice level_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2732
-        height: 2048
+        width: 1632
+        height: 640
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3e2f3a9d14aed180800000000000000
-      internalID: -9088646550938243524
+      spriteID: 2ccf7096101388790800000000000000
+      internalID: -7527712895022924606
       vertices: []
       indices: 
       edges: []
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      IMG_1750_0: -9088646550938243524
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
