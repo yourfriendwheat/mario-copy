@@ -177,6 +177,8 @@ public class GameManager : MonoBehaviour
         {
             Win.SetActive(true);
             isPlayerAlive = true;
+            isPaused = !isPaused;
+            Time.timeScale = isPaused ? 0 : 1;
             CancelInvoke();
         }
         

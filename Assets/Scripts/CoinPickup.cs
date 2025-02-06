@@ -6,6 +6,7 @@ public class CoinPickup : MonoBehaviour
 {
 
     [SerializeField] AudioClip coinPickupSFX;
+    [SerializeField] [Range(0f, 1f)] float Coin = .5f;
 
     bool wasCollected = false;
     
@@ -22,7 +23,7 @@ public class CoinPickup : MonoBehaviour
             var gameSession = Object.FindFirstObjectByType<GameSession>();
             if (gameSession != null)
             {
-                AudioSource.PlayClipAtPoint(coinPickupSFX, Camera.main.transform.position);
+                PlayClip(coinPickupSFX, Coin);
             }
             else
             {
@@ -33,14 +34,25 @@ public class CoinPickup : MonoBehaviour
             Debug.Log("Destroying coin...");
   
             GameObject.Find("GameManager").GetComponent<GameManager>().EarnScore(100);
+            PlayClip(coinPickupSFX, Coin);
             Destroy(gameObject);  // Destroy the coin once collected
 
         }
     }
-    
 
-} 
+    void PlayClip(AudioClip clip, float volume)
+    {
+        if (clip != null)
+        {
+            Vector3 cameraPos = Camera.main.transform.position;
+            AudioSource.PlayClipAtPoint(clip, cameraPos, volume);
+        }
+    }
 
 
-    
+
+}
+
+
+
 
